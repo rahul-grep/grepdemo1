@@ -1,0 +1,16 @@
+<table>
+ <thead>
+    <tr>Email</tr>
+    <tr>Created at</tr>
+</thead>
+<% @users.each do |user| %>
+ <tbody>
+    <tr>
+      <td><%= user.email%></td>
+    </tr>
+     <tr>
+      <td><%= user.created_at%></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

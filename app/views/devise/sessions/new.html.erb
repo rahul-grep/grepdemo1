@@ -1,0 +1,16 @@
+<div id="site_content">
+  <div id="left_content">
+    <h1>LogIn</h1>
+    <p><%= devise_error_messages! %></p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form_settings">
+        <p><span>Email</span><%= f.email_field :email, autofocus: true, class: "contact" %></p>
+        <p><span>Password</span><%= f.password_field :password, autocomplete: "off", class: "contact" %></p>
+        <p style="padding-top: 15px"><span>&nbsp;</span> <%= f.submit "Sign up", class: "submit", value: "Login" %>
+       </div>
+    <% end %>
+  </div>
+  <div id="right_content">
+    <img src="<%= asset_path("contact.jpg")%>" width="450" height="450" title="contact" alt="contact" />
+  </div>
+</div>

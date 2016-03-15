@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grepdemo1</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+  <div id="main">
+
+    <!-- begin header -->
+    <header>
+      <% if flash[:notice].present? %>
+        <script type="text/javascript">
+        $(function() {
+        toastr.success("<%= flash[:notice] %>");
+        });
+        </script>
+      <% end %>
+        <% if flash[:alert].present?  %>
+        <script type="text/javascript">
+        $(function() {
+        toastr.error("<%= flash[:alert]  %>");
+        });
+      <% end %>
+      </script>
+      <div id="logo"><h1>PHOTO<a href="#">ART</a>WORK 2_reverse</h1></div>
+      <nav>
+        <ul class="sf-menu" id="nav">
+          <li class="selected"><%= link_to "home", root_path%></li>
+          <li><%= link_to "about me", new_user_profile_path%></li>
+          <li><a href="#">my portfolio</a>
+            <ul>
+              <li><a href="portfolio_one.html">portfolio_one</a></li>
+              <li><a href="portfolio_two.html">portfolio_two</a></li>
+            </ul>
+          </li>
+          <li><a href="javascript:void(0);", class="blog-class">blog</a></li>
+          <li><a href="contact.html">contact</a></li>
+            <% unless user_signed_in? %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li><%= link_to "Login", new_user_session_path%></li>
+            <% else %>
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <% end%>
+        </ul>
+      </nav>
+    </header>
+  </div>
+<body>
+<%= yield %>
+</body>
+<div id="main">
+  <footer>
+    <p>Copyright &copy; 2012 PhotoArtWork2_reverse. All Rights Reserved. <a href="http://www.css3templates.co.uk">Design from css3templates.co.uk</a>.</p>
+    <p><img src="<%= asset_path("twitter.png")%>" alt="twitter" />&nbsp;<img src="<%= asset_path("facebook.png")%>" alt="facebook" />&nbsp;<img src="<%= asset_path("rss.png")%>" alt="rss" /></p>
+  </footer>
+</div>
+</html>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('ul.sf-menu').sooperfish();
+    });
+</script>

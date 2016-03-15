@@ -1,0 +1,20 @@
+<div id="site_content">
+  <div id="left_content">
+    <h1>Join us here</h1>
+    <%= form_for @user_profile do |f|%>
+      <div class="form_settings">
+        <p><span>First name</span><%= f.text_field :first_name%></p>
+        <p><span>Last name</span><%= f.text_field :last_name%></p>
+        <p><span>Phone no</span><%= f.text_field :phone_no%></p>
+        <p><span>Gender</span><%= f.text_field :gender%></p>
+        <p><span>City</span><%= f.text_field :city%></p>
+        <p><span>State</span><%= f.text_field :state%></p>
+        <p><span>About me</span><%= f.text_area :about_me%></p>
+        <p><span>Avatar</span><%= f.file_field :avatar, as: :image %></p>
+        <p style="padding-top: 15px"><span>&nbsp;</span>
+        <%=f.submit "Register", class: "submit"%>
+        </p>
+      </div>
+    <% end%>
+  </div>
+</div>
