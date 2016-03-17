@@ -12,7 +12,13 @@ class UserProfilesController < ApplicationController
     else
       render :new, alert: @user_profile.errors.full_messages.join(",")
     end
-  end 
+  end
+
+  def get_user_profile
+    user = User.find(params[:id]) 
+    data = user.email
+    render json: {data: data, avatar: user.user_profile  ? user.user_profile.avatar(:medium) : UserProfile.last.avatar(:medium)}
+  end
 
   private
   def user_profile_params

@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/get_user' =>'user#get_user'
   root 'shared#home'
-  resources :user_profiles
+  resources :user_profiles do
+    collection do
+      get 'get_user_profile'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
