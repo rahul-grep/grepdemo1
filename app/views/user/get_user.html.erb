@@ -1,16 +1,44 @@
-<table>
- <thead>
-    <tr>Email</tr>
-    <tr>Created at</tr>
-</thead>
-<% @users.each do |user| %>
- <tbody>
-    <tr>
-      <td><%= user.email%></td>
-    </tr>
-     <tr>
-      <td><%= user.created_at%></td>
-    </tr>
-  </tbody>
+<div id="site_content">
+  <div id="left_content">
+  <%@users.each do |user|%>
+    <div id="blog_container">
+      <div class="blog"><h2>May</h2><h3>20th</h3></div>
+      <h4><a href="javascript:void(0);", class="user_profile", data-item="<%= user.id%>" ><%= user.email%></a></h4>
+      <p>Your profile yet not completed please complete it first to serve all features. <a href="">read more.....</a></p>
+    </div> 
   <% end %>
-</table>
+  </div>
+  <div id="right_content">
+    <div id="blog_text">
+      <h1>Wedding Shoot in Edinburgh</h1>
+      <img src="" alt="one", class="blog-image" /></br>
+      <p id="blog-p"></p>
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.</p> -->
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".user_profile").on('click', function(){
+      var id = $(this).attr('data-item');
+      $.ajax({
+        method: 'get',
+        url: "/user_profiles/get_user_profile",
+        data: {id: id}
+      }).done(function(data) {
+        $("#blog-p").text(data.data);
+        $(".blog-image").attr('src', data.avatar);
+      });
+    });
+  });
+</script>
+
+<script type="text/html">
+  #right_content
+  {
+    background-image:url();
+  }
+
+</script>
