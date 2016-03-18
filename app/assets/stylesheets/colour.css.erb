@@ -1,6 +1,6 @@
 /* dark theme */
 body { 
-  background: #282828 url(dark.png);
+  background: #282828 url(<%= asset_path('dark.png')%>);
   color: #BBB;}
 
 h2, h6 { 
@@ -13,7 +13,7 @@ a, a:hover {
   background: #333;}
 
 #left_content ul li { 
-  background: url(dark_bullet.png) no-repeat left center;}
+  background: url(<%= asset_path('dark_bullet.png')%>) no-repeat left center;}
 
 nav, footer {
   background: #444; /* Show a solid color for older browsers */
@@ -88,11 +88,11 @@ footer a, #slideshow-caption p, .form_settings input, .form_settings textarea,
   color: #FFF;}
 
 div.navigation a.prev {
-  background: url(prev_arrow_white.gif) no-repeat left;}
+  background: url(<%= asset_path('prev_arrow_white.gif')%>) no-repeat left;}
   
 div.navigation a.next {
-  background: url(next_arrow_white.gif) no-repeat right;}
+  background: url(<%= asset_path('next_arrow_white.gif')%>) no-repeat right;}
 
 span.sf-arrow { 
-  background: url(arrows-white.png) no-repeat 0 0;
+  background: url(<%= asset_path('arrows-white.png')%>) no-repeat 0 0;
 }
