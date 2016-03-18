@@ -27,7 +27,7 @@ Rails.application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
-
+  config.assets.precompile += %w( *.css *.erb *.scss *.js *.coffee *.png *.jpg *.ico *.gif)
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
@@ -66,6 +66,7 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
+  config.serve_static_assets = true
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.

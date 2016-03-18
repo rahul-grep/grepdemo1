@@ -21,4 +21,4 @@ test:
 
 production:
   <<: *default
-  database: grepdemo_pro
+  database: grepdemo_dev
