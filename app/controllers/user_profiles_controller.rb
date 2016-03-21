@@ -1,5 +1,6 @@
 class UserProfilesController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
+  skip_before_filter :verify_authenticity_token  
 
   def new
     @user_profile = current_user.build_user_profile

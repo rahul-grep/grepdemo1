@@ -10,19 +10,6 @@
 
     <!-- begin header -->
     <header>
-      <% if flash[:notice].present? %>
-        <script type="text/javascript">
-        $(function() {
-        toastr.success("<%= flash[:notice] %>");
-        });
-        </script>
-      <% end %>
-        <% if flash[:alert].present?  %>
-        <script type="text/javascript">
-        $(function() {
-        toastr.error("<%= flash[:alert]  %>");
-        });
-      <% end %>
       </script>
       <div id="logo"><h1>PHOTO<a href="#">ART</a>WORK 2_reverse</h1></div>
       <nav>
